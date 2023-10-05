@@ -17,19 +17,19 @@ function asyncRead (path){
 };
 
 fs.readdir(filesDir, (err, files) => {
-    if(err) { 
+    if(err || files.length == 0) {
         console.log("No numbers for calculating");
         return;
     }
-    const promisesArr = [];
-    files.forEach((fName) =>{
+    
+    const promisesArr = files.map((fName) => {
         const fPath = path.join(filesDir, fName);
-        promisesArr.push(asyncRead(fPath));
+        return asyncRead(fPath);
     });
 
     Promise.all(promisesArr)
-    .then((values) => {
-        const data = String(values);
+    .then((filesContent) => {
+        const data = String(filesContent);
         const numbers = data.match(/\d+/g);
         const sum = numbers.reduce((acc, curr) => {
             return acc + Number(curr);
@@ -37,7 +37,7 @@ fs.readdir(filesDir, (err, files) => {
         console.log(`The sum of the numbers in the files: ${sum}`);
     }).catch(() => {
         console.log("No numbers for calculating");
-    })
+    });
 });
 
 
