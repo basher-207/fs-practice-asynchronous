@@ -16,15 +16,14 @@ function asyncRead (path){
     });
 };
 
-
-fs.readdir(filesDir, 'utf8', (err, files) => {
+fs.readdir(filesDir, (err, files) => {
     if(err) { 
         console.log("No numbers for calculating");
         return;
     }
     const promisesArr = [];
     files.forEach((fName) =>{
-        const fPath = filesDir + "/" + fName;
+        const fPath = path.join(filesDir, fName);
         promisesArr.push(asyncRead(fPath));
     });
 

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "jest"
+    "test": "./node_modules/.bin/jest"
   },
   "author": "vlad-hrychov",
   "license": "ISC",
