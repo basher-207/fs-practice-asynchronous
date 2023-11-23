@@ -2,8 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const filesDir = "./files";
 
-//Write your code here, use readdir and readFile functions with callbacks.
-
 function asyncRead (path){
     return new Promise((resolve, reject) => {
         fs.readFile(path, 'utf8', (err, data) => {

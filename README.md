@@ -1,6 +1,6 @@
 # Node.js Practical
 
-## Asynchronous programming in Node.js: code with callbacks
+## Asynchronous programming in Node.js
 ### Task
 Write the programm for reading files in directory [`./files`](./files/) (use function `fs.readdir`). Each file contains strings of text or numbers.
 The program must find all the numbers in all the files, calculate their sum and display the result on the screen. File names and their formats can be different, so the program must read all files with formats `.txt`, `.csv`, `.json` and `.xml` in the directory (use function `fs.readFile(file, "utf8", callback)` for reading files).
